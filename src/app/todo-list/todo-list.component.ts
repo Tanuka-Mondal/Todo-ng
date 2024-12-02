@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Todo } from '../models/todo';
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class TodoListComponent {
 
+  todo: Todo = {
+    id: 1,
+    title: 'Buy milk',
+    date: new Date('2024-12-02')
+  }
 }
