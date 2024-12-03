@@ -1,3 +1,38 @@
-<p>{{todo.id}}</p>
-<p>{{todo.title}}</p>
-<p>{{todo.date}}</p>
+<div class="container">
+    <div class="card mt-3">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-center">Add New Task</h2>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <input class="form-control" [(ngModel)]="todoName" placeholder="Task Description">
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" [(ngModel)]="todoDate" type="date" placeholder="Task Date">
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-success w-100" (click)="addTodo()">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-center mt-5">Todos</h2>
+    <ul class="list-group mt-3">
+        <li class="list-group-item d-flex justify-content-between align-item-center"> 
+            <b class="col-6">Task</b>
+            <b class="col-3 text-center">Date</b>
+            <b class="col-3 text-end">Delete</b>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let todo of todos; index as i">
+            <p class="col-6 text-truncate">{{ todo.title }}</p>
+            <p class="col-3 text-center">{{ todo.date | date:'dd.MM.yyyy' }}</p>
+            <div class="col-3 text-end">
+                <button class="btn btn-danger btn-sm" (click)="deleteTodo(i)">Delete</button>
+            </div>
+        </li>
+    </ul>
+    
+</div>
+
